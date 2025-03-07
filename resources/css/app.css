@@ -35,7 +35,7 @@
 /* #region SVG */
 svg{
   margin: 0.3vh;
-  transition: transform 0.9s ease;
+  transition: transform 0.9s linear;
 }
 svg:hover{
   transform: scale(1.2);
@@ -48,8 +48,9 @@ svg:hover{
     background: rgb(255,255,255);
     background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(33,37,41,0.9248511904761905) 10%, rgba(33,37,41,1) 100%);
     height: 23vh;
+    width: 100%;
     position: fixed;
-    transition: height 0.3s ease;
+    transition: all 0.3s linear;
   }  
 
   .container-fluid {
@@ -57,15 +58,9 @@ svg:hover{
   }  
 
   .navbar-brand-container {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    pointer-events: none;
   } 
 
   .navbar-brand {
@@ -73,27 +68,28 @@ svg:hover{
   }
 
   .navbar-shrink {
-    height: 15vh;
-    transition: height 0.8s ease !important;
-    padding: 2vh;
+    height: 19vh;
+    transition: height 0.3s linear !important;
   }
   
   .navbar-shrink #logoNavbar {
-    height: 17vh;
-    width: 17vh;
-    transition: all 0.8s ease;
+    height: 15vh;
+    transition: all 0.3s linear;
   }
   
-
   #logoNavbar {
     height: 18vh;
-    width: 18vh;
-    transition: all 0.8s ease;
+    width: auto;
+    transition: all 0.3s linear;
   }
 
   .navbar-toggler {
     position: absolute;
-    right: 15px;
+    z-index: 1000;
+    right: 1vh;
+    margin-left: auto;
+    display: block !important;
+
   }
 /* #endregion */
 
@@ -110,7 +106,7 @@ svg:hover{
     color: white;
     border-radius: 13px;
     margin-top: 3vh;
-    transition: all 0.3s ease;
+    transition: all 0.3s linear;
   }
   .btnHomepage:hover{
     transform: scale(0.99);
@@ -124,7 +120,7 @@ svg:hover{
     padding: 1vh 2vh;
     border-radius: 5px;
     border: 5px solid white;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s linear;
     height: max-content;
     padding: 10vh;
     text-align: center;
@@ -284,7 +280,7 @@ svg:hover{
   color: #fff;
   border-radius: 6px;
   padding: 13px 5px;
-  transition: all 0.3s ease;
+  transition: all 0.3s linear;
   }
   .form-submit:hover{
     transform: scale(0.99);
@@ -294,8 +290,10 @@ svg:hover{
   }
 /* #endregion */
 
+/* #region ABOUT */
+
 .description{
-  font-size: 2.25vh;
+  font-size: 3vh;
 }
 .descriptionContactJS {
   padding-top: 45vh;
@@ -319,3 +317,100 @@ svg:hover{
   background-repeat: no-repeat;
 }
 
+.sectionabout1{
+  position: relative;
+  left: -100%;
+  background-color: #2125290f;
+  opacity: 0;
+}
+
+.sectionabout2{
+
+  position: relative;
+  opacity: 0;
+  right: -100%;
+}
+
+.sectionabout3{
+  opacity: 0;
+
+}
+
+/* #endregion */
+
+/* schermi piccoli */
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+    position: fixed !important;
+    padding: 0.5rem;
+  }
+  .description{
+    max-height: 50vh;
+    overflow-y: scroll;
+  }
+  .description:focus{
+    background-color: #212529;
+  }
+/* #region section about */
+  .sectionabout1{
+    position: relative;
+    left: 0%;
+    background-color: #2125290f;
+    opacity: 0;
+  }
+  .sectionabout2{
+    position: relative;
+    left: 0%;
+    background-color: #2125290f;
+    opacity: 0;
+  }
+  .sectionabout3{
+    position: relative;
+    left: 0%;
+    background-color: #2125290f;
+    opacity: 0;
+  }
+  .sectionabout1.show{
+    opacity: 1;
+    transition: all 1s linear;
+  }
+  .sectionabout2.show{
+    opacity: 1;
+    transition: all 1s linear;
+  }
+  .sectionabout3.show{
+    opacity: 1;
+    transition: all 1.8s linear;
+  }
+/* #endregion */
+
+  h2{
+    font-size: 3.3vh;
+    margin-bottom: 2vh;
+  }
+
+  .btnContact{
+    font-size: 2.4vh;
+  }
+
+}
+
+/* schermi medi/grandi */
+@media (min-width: 768px) {
+  .sectionabout1.show{
+    left: 0%;
+    opacity: 1;
+    transition: all 1s linear;
+  }
+  .sectionabout2.show{
+    right: 0%;
+    opacity: 1;
+    transition: all 1s linear;
+  }
+  .sectionabout3.show{
+    opacity: 1;
+    transition: all 1.8s linear;
+  }
+ 
+}
